@@ -29,6 +29,8 @@ jobs:
           upstream_sync_branch: main
           target_sync_branch: main
           target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+          # *** 新增这一行来解决 "unrelated histories" 问题 ***
+          git_pull_args: '--allow-unrelated-histories' 
 
       - name: Sync check
         if: failure()
